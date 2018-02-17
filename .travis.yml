@@ -17,4 +17,6 @@ provider: elasticbeanstalk
   region: "eu-west-2a"  
   app: "Testing-Express-API"
   env: "testing-express-environment"
-  bucket_name: "testing-express-bucket"  
+  bucket_name: "testing-express-bucket"
+on:
+    branch: master    
