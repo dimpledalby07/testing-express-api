@@ -12,14 +12,14 @@ install:
 
 script:
   - npm test
-  
+
 deploy:
 provider: elasticbeanstalk
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   region: "eu-west-2a"  
-  app: "Testing-Express-API"
-  env: "testing-express-environment"
-  bucket_name: "testing-express-bucket"
+  app: webapp
+  env: testing-express-environment
+  bucket_name: testing-express-bucket
 on:
     branch: master    
