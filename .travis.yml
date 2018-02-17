@@ -9,3 +9,12 @@ install:
   - npm install --save express
   - npm install --save-dev supertest tape
   - npm install --save-dev tap-spec
+
+deploy:
+provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  region: "eu-west-2a"  
+  app: "Testing-Express-API"
+  env: "testing-express-environment"
+  bucket_name: "testing-express-bucket"  
