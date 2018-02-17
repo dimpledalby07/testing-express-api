@@ -10,6 +10,9 @@ install:
   - npm install --save-dev supertest tape
   - npm install --save-dev tap-spec
 
+script:
+  - npm test
+  
 deploy:
 provider: elasticbeanstalk
   access_key_id: $AWS_ACCESS_KEY_ID
