@@ -1,3 +1,7 @@
 language: node_js
 if: branch = master
 if: type IN (push)
+
+install:
+  - npm install --save express
+  - npm install --save-dev supertest tape
