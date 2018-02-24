@@ -1,4 +1,4 @@
 #!/bin/bash -x
-cd opt
-terraform plan
-terraform apply
+
+/opt/terraform plan
+/opt/terraform apply
