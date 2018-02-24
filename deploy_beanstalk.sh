@@ -1,5 +1,5 @@
 #!/bin/bash -x
 cd /opt/terraform
-ls
-terraform plan
-terraform apply
+ls -lthr
+./terraform plan
+./terraform apply
