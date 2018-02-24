@@ -1,7 +1,8 @@
-# resource "aws_s3_bucket" "state_bucket" {
-#   acl           = "private"
-#   force_destroy = "false"
-# }
+resource "aws_s3_bucket" "test" {
+  acl           = "private"
+  key           = "test"
+  force_destroy = "false"
+}
 
 resource "aws_elastic_beanstalk_application" "testing-express-api" {
   name        = "testing-express-api"
