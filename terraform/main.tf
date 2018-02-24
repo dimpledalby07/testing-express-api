@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "app-zip-bucket" {
 }
 
 resource "aws_s3_bucket_object" "app_zip_object" {
-  bucket = "${aws_s3_bucket.app_zip.id}"
+  bucket = "${aws_s3_bucket.app-zip-bucket.id}"
   key    = "express-api.zip"
   source = "../express-api.zip"
   etag   = "${md5(file("../express-api.zip"))}"
