@@ -13,7 +13,7 @@ install:
 script:
   - npm test
 
-install: ./install_terraform.sh
+install: chmod 700 install_terraform.sh && ./install_terraform.sh
 
 # deploy:
 # provider: elasticbeanstalk
