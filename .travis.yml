@@ -16,5 +16,5 @@ script:
 
 before_install:
   - zip -r express-api.zip * -x "./terraform/*" "./scripts/*" .gitignore
-  - chmod -R 700 ./scripts/ && .scripts/install_terraform.sh
-install: .scripts/deploy_beanstalk.sh
+  - chmod -R 700 ./scripts/ && ./scripts/install_terraform.sh
+install: ./scripts/deploy_beanstalk.sh
