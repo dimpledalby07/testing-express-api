@@ -1,3 +1,8 @@
+resource "aws_s3_bucket" "state_bucket" {
+  acl           = "private"
+  force_destroy = "false"
+}
+
 resource "aws_elastic_beanstalk_application" "express-api" {
   name        = "express-api"
   description = "express-api"

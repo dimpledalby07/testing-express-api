@@ -1,6 +1,7 @@
 terraform {
   backend "s3" {
     bucket   = "expressapi-terraform-state"
-    key      = "express-api"
+    key      = "state-bucket"
+    region   = "eu-west-2"
   }
 }
