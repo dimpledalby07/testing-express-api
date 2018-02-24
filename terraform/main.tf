@@ -1,6 +1,8 @@
-resource "aws_s3_bucket" "test" {
-  acl           = "private"
-  force_destroy = "false"
+resource "aws_s3_bucket_object" "app_zip" {
+  bucket = "app_zip_bucket"
+  key    = "express_api"
+  source = "express-api.zip"
+  etag   = "${md5(file("express-api.zip"))}"
 }
 
 resource "aws_elastic_beanstalk_application" "testing-express-api" {
@@ -13,13 +15,13 @@ resource "aws_elastic_beanstalk_application_version" "latest" {
   name        = "latest"
   application = "${aws_elastic_beanstalk_application.testing-express-api.name}"
   description = "application version created by terraform"
-  bucket      = "test"
-  key         = "test"
+  bucket      = "app_zip_bucket"
+  key         = "express_api"
   depends_on  = ["aws_elastic_beanstalk_application.testing-express-api"]
 }
 
 
-resource "aws_elastic_beanstalk_environment" "testing-express-api" {
+resource "aws_elastic_beanstalk_environment" "testing-express-api-env" {
   name        = "testing-express-api"
   application = "${aws_elastic_beanstalk_application.testing-express-api.name}"
 
