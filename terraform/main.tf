@@ -15,27 +15,27 @@ resource "aws_s3_bucket_object" "app_zip_object" {
   etag   = "${md5(file("../express-api.zip"))}"
 }
 
-resource "aws_elastic_beanstalk_application" "testing-express-api" {
-  name        = "testing-express-api"
+resource "aws_elastic_beanstalk_application" "express-api" {
+  name        = "express-api"
   description = "express-api"
 }
 
 # define elastic beanstalk app version "latest"
 resource "aws_elastic_beanstalk_application_version" "latest" {
   name        = "latest"
-  application = "${aws_elastic_beanstalk_application.testing-express-api.name}"
+  application = "${aws_elastic_beanstalk_application.express-api.name}"
   description = "application version created by terraform"
-  bucket      = "app_zip_bucket"
-  key         = "express_api"
-  depends_on  = ["aws_elastic_beanstalk_application.testing-express-api"]
+  bucket      = "${aws_s3_bucket.app-zip-bucket.id}"
+  key         = "express-api.zip"
+  depends_on  = ["aws_elastic_beanstalk_application.express-api"]
 }
 
 
-resource "aws_elastic_beanstalk_environment" "testing-express-api-env" {
-  name        = "testing-express-api"
-  application = "${aws_elastic_beanstalk_application.testing-express-api.name}"
+resource "aws_elastic_beanstalk_environment" "express-api-env" {
+  name        = "express-api-env"
+  application = "${aws_elastic_beanstalk_application.express-api.name}"
 
-  solution_stack_name = "64bit Amazon Linux 2017.03 v2.6.2 running Tomcat 8 Java 8"
+  solution_stack_name = "64bit Amazon Linux 2017.09 v4.4.5 running Node.js"
 
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
