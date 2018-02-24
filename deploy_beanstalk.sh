@@ -1,6 +1,6 @@
 #!/bin/bash -x
-cd /opt/terraform
+cd terraform
 ls -lthr
-./terraform init
-./terraform plan
-./terraform apply
+/opt/terraform/terraform init
+/opt/terraform/terraform plan
+/opt/terraform/terraform apply
