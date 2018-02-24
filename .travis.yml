@@ -13,5 +13,8 @@ install:
 script:
   - npm test
 
-before_install: chmod 700 install_terraform.sh && ./install_terraform.sh
+
+before_install:
+  - zip -r express-api.zip * -x "./terraform/*" "./scripts/*" .gitignore
+  - chmod 700 install_terraform.sh && ./install_terraform.sh
 install: chmod 700 deploy_beanstalk.sh && ./deploy_beanstalk.sh
