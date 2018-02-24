@@ -1,8 +1,8 @@
 resource "aws_s3_bucket_object" "app_zip" {
   bucket = "app_zip_bucket"
   key    = "express_api"
-  source = "express-api.zip"
-  etag   = "${md5(file("express-api.zip"))}"
+  source = "../express-api.zip"
+  etag   = "${md5(file("../express-api.zip"))}"
 }
 
 resource "aws_elastic_beanstalk_application" "testing-express-api" {
