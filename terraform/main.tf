@@ -1,6 +1,6 @@
 resource "aws_s3_bucket_object" "app_zip" {
   bucket = "app_zip_bucket"
-  #key    = "express_api"
+  key    = "express-api.zip"
   source = "../express-api.zip"
   etag   = "${md5(file("../express-api.zip"))}"
 }
