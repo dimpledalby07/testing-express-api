@@ -13,11 +13,5 @@ install:
 script:
   - npm test
 
-install: chmod 700 install_terraform.sh && ./install_terraform.sh
-
-deploy:
-provider: script
-skip_cleanup: true
-    script: "./deploy_beanstalk.sh"
-on:
-     branch: master    
+before_install: chmod 700 install_terraform.sh && ./install_terraform.sh
+install: chmod 700 && ./deploy_beanstalk.sh
