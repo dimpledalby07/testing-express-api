@@ -13,9 +13,8 @@ install:
 script:
   - npm test
 
-before_deploy:
-  - install_terraform.sh
-  
+install: ./install_terraform.sh
+
 # deploy:
 # provider: elasticbeanstalk
 #   access_key_id: $AWS_ACCESS_KEY_ID
