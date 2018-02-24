@@ -24,11 +24,11 @@
   },
   "homepage": "https://github.com/knownasilya/testing-express-api",
   "dependencies": {
-    "express": "^4.11.2"
+    "express": "^4.16.2"
   },
   "devDependencies": {
     "supertest": "^0.15.0",
-    "tap-spec": "^2.2.1",
-    "tape": "^3.5.0"
+    "tap-spec": "^2.2.2",
+    "tape": "^3.6.1"
   }
 }

@@ -1,6 +1,5 @@
 resource "aws_s3_bucket" "test" {
   acl           = "private"
-  key           = "test"
   force_destroy = "false"
 }
 
