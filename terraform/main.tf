@@ -1,6 +1,11 @@
-resource "aws_s3_bucket" "app_zip" {
-  bucket = "app_zip_bucket"
-  acl    = "private"
+
+resource "aws_s3_bucket" "app-zip-bucket" {
+  bucket   = "app-zip-bucket"
+  region   = "eu-west-2"
+
+  versioning {
+    enabled = true
+  }
 }
 
 resource "aws_s3_bucket_object" "app_zip_object" {
