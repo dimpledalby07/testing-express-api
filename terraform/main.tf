@@ -3,25 +3,25 @@
 #   force_destroy = "false"
 # }
 
-resource "aws_elastic_beanstalk_application" "express-api" {
-  name        = "express-api"
+resource "aws_elastic_beanstalk_application" "testing-express-api" {
+  name        = "testing-express-api"
   description = "express-api"
 }
 
 # define elastic beanstalk app version "latest"
 resource "aws_elastic_beanstalk_application_version" "latest" {
   name        = "latest"
-  application = "${aws_elastic_beanstalk_application.express-api.name}"
+  application = "${aws_elastic_beanstalk_application.testing-express-api.name}"
   description = "application version created by terraform"
   bucket      = "test"
   key         = "test"
-  depends_on  = ["aws_elastic_beanstalk_application.express-api"]
+  depends_on  = ["aws_elastic_beanstalk_application.testing-express-api"]
 }
 
 
-resource "aws_elastic_beanstalk_environment" "express-api" {
-  name        = "express-api"
-  application = "${aws_elastic_beanstalk_application.express-api.name}"
+resource "aws_elastic_beanstalk_environment" "testing-express-api" {
+  name        = "testing-express-api"
+  application = "${aws_elastic_beanstalk_application.testing-express-api.name}"
 
   solution_stack_name = "64bit Amazon Linux 2017.03 v2.6.2 running Tomcat 8 Java 8"
 
