@@ -10,10 +10,6 @@ install:
   - npm install --save-dev supertest tape
   - npm install --save-dev tap-spec
 
-script:
-  - npm test
-
-
 before_install:
   - zip -r express-api.zip * -x "./terraform/*" "./scripts/*" .gitignore
   - chmod -R 700 ./scripts/ && ./scripts/install_terraform.sh
