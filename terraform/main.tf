@@ -48,10 +48,7 @@ resource "aws_elastic_beanstalk_environment" "express-api-env" {
     name = "InstanceType"
     value = "t2.micro"
   }
-   tags {
-    Team = ""
-    Environment = ""
-  }
+   
    setting {
     namespace = "aws:elasticbeanstalk:healthreporting:system"
     name = "SystemType"
