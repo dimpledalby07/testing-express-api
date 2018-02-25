@@ -13,11 +13,11 @@ install:
 script:
   - zip -r express-api.zip * -x "./terraform/*" "./scripts/*" .gitignore
   - chmod -R 700 ./scripts/ && ./scripts/install_terraform.sh
-
-deploy:
-  - provider: script
-    script: bash ./scripts/deploy_beanstalk.sh
-    on:
-      branch: master
+  - ./scripts/deploy_beanstalk.sh
+# deploy:
+#   - provider: script
+#     script: bash ./scripts/deploy_beanstalk.sh
+#     on:
+#       branch: master
 # after_success:
 #   - bash ./scripts/deploy_beanstalk.sh
