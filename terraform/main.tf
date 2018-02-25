@@ -70,4 +70,9 @@ resource "aws_elastic_beanstalk_environment" "express-api-env" {
       name ="StreamLogs"
       value = "True"
   }
+  setting {
+    namespace = "aws:elb:listener:3000"
+    name      = "InstancePort"
+    value     = "3000"
+  }
 }
